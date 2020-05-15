@@ -38,8 +38,12 @@ def increase_pets_sold(pets_sold, sold)
     return pets_sold[:admin][:pets_sold] += 2
 end
 
-
 # 07. Stock count
+# count the items within the @pet_shop[:pets] array
+
+def stock_count(count)
+    return count[:pets].count
+end
 
 # 08. Sort all pets by breed [found]
 
@@ -47,13 +51,13 @@ end
 
 # 10. Find pet by name
 
-# 10. Find pet by name [nil]
+# 11. Find pet by name [nil]
 
-# 11. Remove pet by name
+# 12. Remove pet by name
 
-# 12. Add pet to stock
+# 13. Add pet to stock
 
-# 13. Customer cash
+# 14. Customer cash
 
 # 15. Remove customer cash
 
