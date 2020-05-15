@@ -1,29 +1,36 @@
-# 1. Get shop name
+# 01. Get shop name
 # access array one level within main array
 
 def pet_shop_name(shop)
     return shop[:name]
 end
 
-# 2. Get total cash
-# access [:admin] array second level within main array
+# 02. Get shop's total cash
+# access @pet_shop[:admin][:total_cash]
 
 def total_cash(sum)
     return sum[:admin][:total_cash]
 end
-# 3. Add or remove cash
+# 03. Add or remove cash [add]
+# add +10 to @pet_shop[:admin][:total_cash]
 
-# 4. Get pets sold
+def add_or_remove_cash(cash, amount)
+    return cash[:admin][:total_cash] += amount
+end
 
-# 5. Increase pets sold
+# 04. Add or remove cash [remove]
 
-# 6. Stock count
+# 05. Get pets sold
 
-# 7. Sort all pets by breed [found]
+# 06. Increase pets sold
 
-# 8. Sort all pets by bread [no_found]
+# 07. Stock count
 
-# 9. Find pet by name
+# 08. Sort all pets by breed [found]
+
+# 09. Sort all pets by bread [no_found]
+
+# 10. Find pet by name
 
 # 10. Find pet by name [nil]
 
