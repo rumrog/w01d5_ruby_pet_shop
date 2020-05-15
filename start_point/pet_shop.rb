@@ -24,11 +24,16 @@ def add_or_remove_cash(cash, amount)
     return cash[:admin][:total_cash] -= amount
 end
 
-
-
 # 05. Get pets sold
+# access @pet_shop[:admin][:pets_sold]
+
+def pets_sold(sold)
+    return sold[:admin][:pets_sold]
+end
 
 # 06. Increase pets sold
+
+
 
 # 07. Stock count
 
