@@ -32,7 +32,11 @@ def pets_sold(sold)
 end
 
 # 06. Increase pets sold
+# add 2 to @pet_shop[:admin][:total_cash]
 
+def increase_pets_sold(pets_sold, sold)
+    return pets_sold[:admin][:pets_sold] += 2
+end
 
 
 # 07. Stock count
