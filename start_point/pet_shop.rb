@@ -14,11 +14,17 @@ end
 # 03. Add or remove cash [add]
 # add +10 to @pet_shop[:admin][:total_cash]
 
-def add_or_remove_cash(cash, amount)
-    return cash[:admin][:total_cash] += amount
-end
+# & 
 
 # 04. Add or remove cash [remove]
+# remove -10 to @pet_shop[:admin][:total_cash]
+
+def add_or_remove_cash(cash, amount)
+    return cash[:admin][:total_cash] += amount
+    return cash[:admin][:total_cash] -= amount
+end
+
+
 
 # 05. Get pets sold
 
