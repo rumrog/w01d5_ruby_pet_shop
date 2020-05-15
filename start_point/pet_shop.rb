@@ -6,7 +6,11 @@ def pet_shop_name(shop)
 end
 
 # 2. Get total cash
+# access [:admin] array second level within main array
 
+def total_cash(sum)
+    return sum[:admin][:total_cash]
+end
 # 3. Add or remove cash
 
 # 4. Get pets sold
