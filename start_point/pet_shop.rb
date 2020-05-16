@@ -44,28 +44,42 @@ def stock_count(count)
 end
 
 # 08. Sort all pets by breed [found]
-# 1. function with 2 parameters, pets[:pets] and breed 
+# 1. function with 2 parameters, pets array and breed 
 # (a string with name of the breed we want to compare)
 # 2. define an empty array in breed_array
-# 3. loop all the items of the pets[:pets] array
+# 3. loop all items within the pets array
 # 4. if inner items of the array (pet[:breed]) 
 # match the breed argument, then
 # 5. push breed inside the empty breed_array
 # 6. Outside the loop, return breed_array
 # &
 # 09. Sort all pets by bread [no_found]
+# 0. nothing to do here? does the include? method
+# takes care of this?
 
-def pets_by_breed(pets, breed)
+def pets_by_breed(pets, pet_breed)
     breed_array = []
     for pet in pets[:pets]
-        if pet[:breed].include?(breed)
-            breed_array.push(breed)
+        if pet[:breed].include?(pet_breed)
+            breed_array.push(pet_breed)
         end
     end
     return breed_array
 end
 
 # 10. Find pet by name
+# 1. function with 2 parameters; pets array and pet_name
+# 2. loop all items within pets array
+# 3. if item match argument of pet_name
+# 4. return item
+
+def find_pet_by_name(pets, pet_name)
+    for pet in pets[:pets]
+        if pet[:name].include?(pet_name)
+            return pet
+        end
+    end
+end
 
 # 11. Find pet by name [nil]
 
