@@ -21,7 +21,7 @@ end
 
 def add_or_remove_cash(cash, amount)
     return cash[:admin][:total_cash] += amount
-    return cash[:admin][:total_cash] -= amount
+    # return cash[:admin][:total_cash] -= amount
 end
 
 # 05. Get pets sold
@@ -39,13 +39,24 @@ def increase_pets_sold(pets_sold, sold)
 end
 
 # 07. Stock count
-# count the items within the @pet_shop[:pets] array
+# .count items within the @pet_shop[:pets] array
 
 def stock_count(count)
     return count[:pets].count
 end
 
 # 08. Sort all pets by breed [found]
+
+
+def pets_by_breed(pets, breed)
+    breed_array = []
+    for pet in pets[:pets]
+        if pet[:breed].include?(breed)
+            breed_array.push(breed)
+        end
+    end
+    return breed_array
+end
 
 # 09. Sort all pets by bread [no_found]
 
