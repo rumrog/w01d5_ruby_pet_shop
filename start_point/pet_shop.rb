@@ -122,6 +122,12 @@ def remove_customer_cash(customer, amount)
 end
 
 # 16. Customer pet count
+# 1. access customer[:pets] array
+# 2. .count items within array
+
+def customer_pet_count(customer)
+    return customer[:pets].count
+end
 
 # 17. Add pet to customer
 
