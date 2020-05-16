@@ -89,6 +89,14 @@ def find_pet_by_name(pets, pet_name)
 end
 
 # 12. Remove pet by name
+# 1. call previous function with same 2 parameters
+# 2. assign outcome of previous function to pet_found var
+# 3. delete pet_found within pets array.
+
+def remove_pet_by_name(pets, pet_name)
+    pet_found = find_pet_by_name(pets, pet_name)
+        pets[:pets].delete(pet_found)
+end
 
 # 13. Add pet to stock
 
