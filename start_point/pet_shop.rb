@@ -99,6 +99,12 @@ def remove_pet_by_name(pets, pet_name)
 end
 
 # 13. Add pet to stock
+# 1. to pets array, push item store in @new_pet
+
+def add_pet_to_stock(pets, new_pet)
+    pets[:pets].push(new_pet)
+    # pets[:pets] << new_pet
+end
 
 # 14. Customer cash
 
