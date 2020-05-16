@@ -143,14 +143,16 @@ end
 # 1. declare function with 2 parameters, customer and new_pet
 # 2. if customer[:cash] is greater than new_pet[:price] then
 # 3. return true
-
+# &
 # 19. Customer can afford pet - insufficient funds [false]
 # 1. elsif customer[:cash] is lesser than new_pet[:price] then
 # 2. return false
+# &
 # 20. Customer can afford pet - exact funds [true]
+# 1. to the if condition of 18.2, add (=) to (>)
 
 def customer_can_afford_pet(customer, new_pet)
-    if customer[:cash] > new_pet[:price]
+    if customer[:cash] >= new_pet[:price]
         return true
     elsif customer[:cash] < new_pet[:price]
         return false
