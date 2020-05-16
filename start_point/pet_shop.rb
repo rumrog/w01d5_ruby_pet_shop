@@ -175,7 +175,7 @@ def sell_pet_to_customer(pets, pet, customer)
 # 3. reduce customer cash
 # 4. increase shop cash
 
-    if (pet == nil) || (customer[:cash] < pet[:price])
+    if pet == nil || customer[:cash] < pet[:price]
         return nil
     else
         pet_bought = customer[:pets].push(pet)
