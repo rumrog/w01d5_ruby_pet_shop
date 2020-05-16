@@ -13,9 +13,7 @@ def total_cash(sum)
 end
 # 03. Add or remove cash [add]
 # add +10 to @pet_shop[:admin][:total_cash]
-
 # & 
-
 # 04. Add or remove cash [remove]
 # remove -10 to @pet_shop[:admin][:total_cash]
 
@@ -46,7 +44,16 @@ def stock_count(count)
 end
 
 # 08. Sort all pets by breed [found]
-
+# 1. function with 2 parameters, pets[:pets] and breed 
+# (a string with name of the breed we want to compare)
+# 2. define an empty array in breed_array
+# 3. loop all the items of the pets[:pets] array
+# 4. if inner items of the array (pet[:breed]) 
+# match the breed argument, then
+# 5. push breed inside the empty breed_array
+# 6. Outside the loop, return breed_array
+# &
+# 09. Sort all pets by bread [no_found]
 
 def pets_by_breed(pets, breed)
     breed_array = []
@@ -57,8 +64,6 @@ def pets_by_breed(pets, breed)
     end
     return breed_array
 end
-
-# 09. Sort all pets by bread [no_found]
 
 # 10. Find pet by name
 
