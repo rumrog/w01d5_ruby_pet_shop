@@ -107,6 +107,11 @@ def add_pet_to_stock(pets, new_pet)
 end
 
 # 14. Customer cash
+# 1. access customer[:cash]
+
+def customer_cash(customer)
+    return customer[:cash]
+end
 
 # 15. Remove customer cash
 
