@@ -72,6 +72,12 @@ end
 # 2. loop all items within pets array
 # 3. if item match argument of pet_name
 # 4. return item
+# &
+# 11. Find pet by name [nil]
+# 5. if pet_name doesn't exist, then exit loop and
+# return nil
+# TIP: return expected output in all levels before try
+# something different.
 
 def find_pet_by_name(pets, pet_name)
     for pet in pets[:pets]
@@ -79,9 +85,8 @@ def find_pet_by_name(pets, pet_name)
             return pet
         end
     end
+    return nil
 end
-
-# 11. Find pet by name [nil]
 
 # 12. Remove pet by name
 
