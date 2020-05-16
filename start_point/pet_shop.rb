@@ -32,8 +32,8 @@ end
 # 06. Increase pets sold
 # add 2 to @pet_shop[:admin][:total_cash]
 
-def increase_pets_sold(pets_sold, sold)
-    return pets_sold[:admin][:pets_sold] += 2
+def increase_pets_sold(pets_sold, amount)
+    return pets_sold[:admin][:pets_sold] += amount
 end
 
 # 07. Stock count
@@ -152,15 +152,62 @@ end
 # 1. to the if condition of 18.2, add (=) to (>)
 
 def customer_can_afford_pet(customer, new_pet)
-    if customer[:cash] >= new_pet[:price]
-        return true
-    elsif customer[:cash] < new_pet[:price]
-        return false
-    end
+    # ternary
+
+    return customer[:cash] >= new_pet[:price] ? true : false
+
+    # if customer[:cash] >= new_pet[:price]
+    #     return true
+    # elsif customer[:cash] < new_pet[:price]
+    #     return false
+    # end
 end
 
 # 21. Sell pet to customer - pet found
-
+# &
 # 22. Sell pet to customer - pet not found
-
+# &
 # 23. Sell pet to customer - insufficient funds
+
+def sell_pet_to_customer(pets, pet, customer)
+# 1. add pet to customer
+# 2. increase pets_sold
+# 3. reduce customer cash
+# 4. increase shop cash
+
+    # if pet ==! nil
+
+        pet_bought = customer[:pets].push(pet)
+        pets[:admin][:pets_sold] += pet_bought.count
+        customer[:cash] -= pet[:price]
+        pets[:admin][:total_cash] += pet[:price]
+    # else
+    #     return nil
+    # end
+
+end
+
+
+#   def test_sell_pet_to_customer__pet_not_found
+#     customer = @customers[0]
+#     pet = find_pet_by_name(@pet_shop,"Dave")
+
+#     sell_pet_to_customer(@pet_shop, pet, customer)
+
+#     assert_equal(0, customer_pet_count(customer))
+#     assert_equal(0, pets_sold(@pet_shop))
+#     assert_equal(1000, customer_cash(customer))
+#     assert_equal(1000, total_cash(@pet_shop))
+#   end
+
+  # def test_sell_pet_to_customer__insufficient_funds
+  #   customer = @customers[1]
+  #   pet = find_pet_by_name(@pet_shop,"Arthur")
+
+  #   sell_pet_to_customer(@pet_shop, pet, customer)
+
+  #   assert_equal(0, customer_pet_count(customer))
+  #   assert_equal(0, pets_sold(@pet_shop))
+  #   assert_equal(50, customer_cash(customer))
+  #   assert_equal(1000, total_cash(@pet_shop))
+  # end
