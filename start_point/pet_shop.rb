@@ -99,7 +99,7 @@ def remove_pet_by_name(pets, pet_name)
 end
 
 # 13. Add pet to stock
-# 1. to pets array, push item store in @new_pet
+# 1. to pets array, .push item new_pet argument
 
 def add_pet_to_stock(pets, new_pet)
     pets[:pets].push(new_pet)
@@ -130,6 +130,12 @@ def customer_pet_count(customer)
 end
 
 # 17. Add pet to customer
+# 1. access customer[:pets] array
+# 2. .push new_pet argument
+
+def add_pet_to_customer(customer, new_pet)
+    customer[:pets].push(new_pet)
+end
 
 # --- OPTIONAL ---
 
