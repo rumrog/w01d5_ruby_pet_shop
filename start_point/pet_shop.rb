@@ -114,6 +114,12 @@ def customer_cash(customer)
 end
 
 # 15. Remove customer cash
+# 1. access customer[:cash]
+# 2. substract (-=) amount
+
+def remove_customer_cash(customer, amount)
+    return customer[:cash] -= amount
+end
 
 # 16. Customer pet count
 
