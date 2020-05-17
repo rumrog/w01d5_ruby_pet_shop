@@ -1,8 +1,8 @@
 # 01. Get shop name
 # access array one level within main array
 
-def pet_shop_name(shop)
-    return shop[:name]
+def pet_shop_name(pet_shop)
+    return pet_shop[:name]
 end
 
 # 02. Get shop's total cash
@@ -24,22 +24,22 @@ end
 # 05. Get pets sold
 # access @pet_shop[:admin][:pets_sold]
 
-def pets_sold(sold)
-    return sold[:admin][:pets_sold]
+def pets_sold(pet_sold)
+    return pet_sold[:admin][:pets_sold]
 end
 
 # 06. Increase pets sold
 # add 2 to @pet_shop[:admin][:total_cash]
 
-def increase_pets_sold(pets_sold, amount)
-    return pets_sold[:admin][:pets_sold] += amount
+def increase_pets_sold(pet_shop, amount)
+    return pet_shop[:admin][:pets_sold] += amount
 end
 
 # 07. Stock count
 # .count items within the @pet_shop[:pets] array
 
-def stock_count(count)
-    return count[:pets].count
+def stock_count(pet_shop)
+    return pet_shop[:pets].count
 end
 
 # 08. Sort all pets by breed [found]
@@ -56,18 +56,18 @@ end
 # 0. nothing to do here? does the include? method
 # takes care of this?
 
-# def pets_by_breed(pets, pet_breed)
+# def pets_by_breed(pet_shop, pet_breed)
 #     breed_array = []
-#     for pet in pets[:pets]
+#     for pet in pet_shop[:pets]
 #         if pet[:breed].include?(pet_breed)
-#             breed_array.push(pet_breed)
+#             breed_array.push(pet)
 #         end
 #     end
 #     return breed_array
 # end
 
-def pets_by_breed(pets, pet_breed)
-    pets[:pets].select{|x| x[:breed] == pet_breed}
+def pets_by_breed(pet_shop, pet_breed)
+    pet_shop[:pets].select{|pet| pet[:breed] == pet_breed}
     # 1. .select grabs the addressed level of the array.
     # 2. then, with a placeholder var, iterates each inner item and checks
     # if the value of key [:breed] is equal to argument of pet_breed.
@@ -89,8 +89,8 @@ end
 #     pets[:pets].each{|x| x[:name].include?(pet_name) ? x : nil}# x[:name] == pet_name}
 # end
 
-def find_pet_by_name(pets, pet_name)
-    for pet in pets[:pets]
+def find_pet_by_name(pet_shop, pet_name)
+    for pet in pet_shop[:pets]
         if pet[:name].include?(pet_name)
             return pet
         end
@@ -103,17 +103,17 @@ end
 # 2. assign outcome of previous function to pet_found var
 # 3. delete pet_found within pets array.
 
-def remove_pet_by_name(pets, pet_name)
-    pet_found = find_pet_by_name(pets, pet_name)
-        pets[:pets].delete(pet_found)
+def remove_pet_by_name(pet_shop, pet_name)
+    pet_found = find_pet_by_name(pet_shop, pet_name)
+        pet_shop[:pets].delete(pet_found)
 end
 
 # 13. Add pet to stock
 # 1. to pets array, .push item new_pet argument
 
-def add_pet_to_stock(pets, new_pet)
-    pets[:pets].push(new_pet)
-    # pets[:pets] << new_pet
+def add_pet_to_stock(pet_shop, new_pet)
+    pet_shop[:pets].push(new_pet)
+    # pet_shop[:pets] << new_pet
 end
 
 # 14. Customer cash
@@ -181,22 +181,22 @@ end
 # 3. reduce customer cash
 # 4. increase shop cash
 
-def sell_pet_to_customer(pets, pet, customer)
+def sell_pet_to_customer(pet_shop, pet, customer)
 
     if pet == nil || customer[:cash] < pet[:price]
         return nil
     else
         # reusing previous functions
         add_pet_to_customer(customer, pet)
-        increase_pets_sold(pets, customer_pet_count(customer))
+        increase_pets_sold(pet_shop, customer_pet_count(customer))
         remove_customer_cash(customer, pet[:price])
-        add_or_remove_cash(pets, pet[:price])
+        add_or_remove_cash(pet_shop, pet[:price])
         
         # using previous functions functionality
         # pet_bought = customer[:pets].push(pet)
-        # pets[:admin][:pets_sold] += pet_bought.count
+        # pet_shop[:admin][:pets_sold] += pet_bought.count
         # customer[:cash] -= pet[:price]
-        # pets[:admin][:total_cash] += pet[:price]
+        # pet_shop[:admin][:total_cash] += pet[:price]
     end
 
 end
