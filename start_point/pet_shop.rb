@@ -19,7 +19,6 @@ end
 
 def add_or_remove_cash(cash, amount)
     return cash[:admin][:total_cash] += amount
-    # return cash[:admin][:total_cash] -= amount
 end
 
 # 05. Get pets sold
@@ -53,18 +52,25 @@ end
 # 5. push breed inside the empty breed_array
 # 6. Outside the loop, return breed_array
 # &
-# 09. Sort all pets by bread [no_found]
+# 09. Sort all pets by breed [no_found]
 # 0. nothing to do here? does the include? method
 # takes care of this?
 
+# def pets_by_breed(pets, pet_breed)
+#     breed_array = []
+#     for pet in pets[:pets]
+#         if pet[:breed].include?(pet_breed)
+#             breed_array.push(pet_breed)
+#         end
+#     end
+#     return breed_array
+# end
+
 def pets_by_breed(pets, pet_breed)
-    breed_array = []
-    for pet in pets[:pets]
-        if pet[:breed].include?(pet_breed)
-            breed_array.push(pet_breed)
-        end
-    end
-    return breed_array
+    pets[:pets].select{|x| x[:breed] == pet_breed} 
+    # 1. .select grabs the addressed level of the array.
+    # 2. then, with a placeholder var, iterates each inner item and checks
+    # if the value of key [:breed] is equal to argument of pet_breed.
 end
 
 # 10. Find pet by name
@@ -78,6 +84,10 @@ end
 # return nil
 # TIP: return expected output in all levels before try
 # something different.
+
+# def find_pet_by_name(pets, pet_name)
+#     pets[:pets].select{|x| x[:name] == pet_name.select {|x| x[:name]}}
+# end
 
 def find_pet_by_name(pets, pet_name)
     for pet in pets[:pets]
@@ -152,9 +162,7 @@ end
 # 1. to the if condition of 18.2, add (=) to (>)
 
 def customer_can_afford_pet(customer, new_pet)
-    # ternary
-
-    return customer[:cash] >= new_pet[:price] ? true : false
+    return customer[:cash] >= new_pet[:price]
 
     # if customer[:cash] >= new_pet[:price]
     #     return true
@@ -168,19 +176,27 @@ end
 # 22. Sell pet to customer - pet not found
 # &
 # 23. Sell pet to customer - insufficient funds
-
-def sell_pet_to_customer(pets, pet, customer)
 # 1. add pet to customer
 # 2. increase pets_sold
 # 3. reduce customer cash
 # 4. increase shop cash
 
+def sell_pet_to_customer(pets, pet, customer)
+
     if pet == nil || customer[:cash] < pet[:price]
         return nil
     else
-        pet_bought = customer[:pets].push(pet)
-        pets[:admin][:pets_sold] += pet_bought.count
-        customer[:cash] -= pet[:price]
-        pets[:admin][:total_cash] += pet[:price]
+        # reusing previous functions
+        add_pet_to_customer(customer, pet)
+        increase_pets_sold(pets, customer_pet_count(customer))
+        remove_customer_cash(customer, pet[:price])
+        add_or_remove_cash(pets, pet[:price])
+        
+        # using previous functions functionality
+        # pet_bought = customer[:pets].push(pet)
+        # pets[:admin][:pets_sold] += pet_bought.count
+        # customer[:cash] -= pet[:price]
+        # pets[:admin][:total_cash] += pet[:price]
     end
+
 end
