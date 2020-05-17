@@ -48,9 +48,9 @@ end
 # 2. define an empty array in breed_array
 # 3. loop all items within the pets array
 # 4. if inner items of the array (pet[:breed]) 
-# match the breed argument, then
+# match the breed argument, then:
 # 5. push breed inside the empty breed_array
-# 6. Outside the loop, return breed_array
+# 6. Outside the loop [?], return breed_array
 # &
 # 09. Sort all pets by breed [no_found]
 # 0. nothing to do here? does the include? method
@@ -67,7 +67,7 @@ end
 # end
 
 def pets_by_breed(pets, pet_breed)
-    pets[:pets].select{|x| x[:breed] == pet_breed} 
+    pets[:pets].select{|x| x[:breed] == pet_breed}
     # 1. .select grabs the addressed level of the array.
     # 2. then, with a placeholder var, iterates each inner item and checks
     # if the value of key [:breed] is equal to argument of pet_breed.
@@ -83,10 +83,10 @@ end
 # 5. if pet_name doesn't exist, then exit loop and
 # return nil
 # TIP: return expected output in all levels before try
-# something different.
+# something different & comment every attempt
 
 # def find_pet_by_name(pets, pet_name)
-#     pets[:pets].select{|x| x[:name] == pet_name.select {|x| x[:name]}}
+#     pets[:pets].each{|x| x[:name].include?(pet_name) ? x : nil}# x[:name] == pet_name}
 # end
 
 def find_pet_by_name(pets, pet_name)
